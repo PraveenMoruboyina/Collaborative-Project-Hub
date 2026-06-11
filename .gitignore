@@ -24,5 +24,5 @@ coverage/
 
 *.tmp
 *.temp
-docker-compose.yml
+infrastructure/docker/.env
 
