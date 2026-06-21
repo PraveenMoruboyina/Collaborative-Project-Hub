@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cph-database
+  labels:
+    app: cph-database
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cph-database
+  template:
+    metadata:
+      labels:
+        app: cph-database
+    spec:
+      containers:
+      - name: db-pod
+        image: postgres:16
+        ports:
+        - containerPort: 5432
+        env:
+        - name: DATABASE_URL
+          value: postgresql://postgres:pass123@db-service:5432/CPH
+        - name: POSTGRES_USER
+          value: postgres
+        - name: POSTGRES_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: postgres-secret
+              key: POSTGRES_PASSWORD
+        - name: POSTGRES_DB
+          value: CPH
+        volumeMounts:
+        - name: postgres-storage
+          mountPath: /var/lib/postgresql/data
+      volumes:
+      - name: postgres-storage
+        persistentVolumeClaim:
+          claimName: postgres-pvc
+

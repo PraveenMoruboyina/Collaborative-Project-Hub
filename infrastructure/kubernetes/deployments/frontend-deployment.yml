@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cph-frontend
+  labels:
+    app: cph-frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cph-frontend
+  template:
+    metadata:
+      labels:
+        app: cph-frontend
+    spec:
+      containers:
+      - name: frontend-pod
+        image: praveeswork11/cph-frontend:v2
+        ports:
+        - containerPort: 80
+

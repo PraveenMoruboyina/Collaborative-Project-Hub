@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cph-backend
+  labels:
+    app: cph-backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cph-backend
+  template:
+    metadata:
+      labels:
+        app: cph-backend
+    spec:
+      containers:
+      - name: backend-pod
+        image: praveeswork11/cph-backend:v1
+        ports:
+        - containerPort: 4000
+        env:
+        - name: DATABASE_URL
+          valueFrom:
+            secretKeyRef:
+              name: backend-secret
+              key: DATABASE_URL
+        - name: JWT_SECRET
+          valueFrom:
+            secretKeyRef:
+              name: backend-secret
+              key: JWT_SECRET
