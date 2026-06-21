@@ -238,7 +238,7 @@ PORT=4000
 ### Clone Repository
 
 ```bash
-git clone https://github.com/<your-username>/Collaborative-Project-Hub.git
+git clone https://github.com/PraveenMoruboyina/Collaborative-Project-Hub.git
 
 cd Collaborative-Project-Hub
 ```
