@@ -293,16 +293,17 @@ http://localhost:5173
 
 CPH can be deployed on a Kubernetes cluster using the provided manifests.
 
-Components Deployed
-Frontend Deployment
-Backend Deployment
-PostgreSQL Deployment
-Frontend Service
-Backend Service
-Database Service
-Persistent Volume Claim (PVC)
-Kubernetes Secrets
-Ingress Resource
+Components Deployed:
+
+* Frontend Deployment
+* Backend Deployment
+* PostgreSQL Deployment
+* Frontend Service
+* Backend Service
+* Database Service
+* Persistent Volume Claim (PVC)
+* Kubernetes Secrets
+* Ingress Resource
 
 ### Apply Kubernetes Resources
 ```bash
