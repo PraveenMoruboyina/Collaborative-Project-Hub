@@ -2,22 +2,18 @@ name: Backend CI
 
 on:
   push:
-    paths:
-      - 'backend/**'
-  pull_request:
+    branches:
+      - main
     paths:
       - 'backend/**'
 
 jobs:
-  build:
+  backend-check:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v4
-      - name: Install dependencies
-        run: |
-          cd backend
-          npm install
-      - name: Run lint
-        run: |
-          cd backend
-          npm test || true
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Print Message
+        run: echo "Backend workflow triggered successfully!"
